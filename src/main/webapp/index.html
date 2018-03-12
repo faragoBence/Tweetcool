@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favico/favicon-16x16.png">
+    <link rel="manifest" href="resources/favico/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <title>TweetCool</title>
+</head>
+
+<body>
+    <header>
+        <h1>TweetCool</h1>
+
+    </header>
+
+    <section class="forms">
+        <table class="formTable">
+            <tr>
+                <td>
+                    <form class="form post" action="main" method="POST">
+                        <img src="resources/img/Twitter-Download-PNG.png" alt="logo" class="logo"><br>
+                        Name:<br>
+                        <input type="text" name="name"><br> Message:<br>
+                        <input type="text" name="message"><br>
+                        <input type="submit" value="Send" class="btn">
+                    </form>
+                </td>
+                <td>
+                    <form class="form tweets" action="main" method="GET">
+                        Number of posts:<br>
+                        <input type=number name="limit" value="10"><br> Posts to skip:<br>
+                        <input type="number" name="offset" value="0"><br>Poster:<br>
+                        <input type="text" name="name"><br> Time:<br>
+                        <input type=datetime-local name="time" value="1970-01-01T00:00"><br>
+                        <input type="submit" value="Get" class="btn btnget">
+
+                    </form>
+
+                </td>
+            </tr>
+        </table>
+
+
+
+    </section>
+
+
+
+</body>
+
+
+</html>
