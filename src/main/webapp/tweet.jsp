@@ -13,19 +13,19 @@
 <body>
 <h1>Posts</h1>
 <section class="posts">
-<c:forEach var="person" items="${tweets}">
+<c:forEach var="tweet" items="${tweets}">
 <table class="postTable">
     <tr class="postHeader">
         <td class="poster">
-            <c:out value="${person.poster}"  />
+            <c:out value="${tweet.poster}"  />
         </td>
         <td class="time">
-            <c:out value="${person.date}"  />
+            <c:out value="${tweet.dateFormat}"  />
         </td>
     </tr>
     <tr class="postMain">
         <td colspan="2" class="main">
-            <c:out value="'${person.content}'"  />
+            <c:out value="'${tweet.content}'"  />
         </td>
     </tr>
 </table>
