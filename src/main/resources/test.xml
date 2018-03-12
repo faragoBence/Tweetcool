@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tweets>
+    <tweet>
+        <id>111111</id>
+        <poster>Bence</poster>
+        <message>I'm fine</message>
+        <time>11111111</time>
+    </tweet>
+    <tweet>
+        <id>111112</id>
+        <poster>Goat</poster>
+        <message>MEEEEE</message>
+        <time>11112211</time>
+    </tweet>
+    <tweet>
+        <id>111111</id>
+        <poster>Bence</poster>
+        <message>I'm fine</message>
+        <time>11111111</time>
+    </tweet>
+    <tweet>
+        <id>111112</id>
+        <poster>Goat</poster>
+        <message>MEEEEE</message>
+        <time>11112211</time>
+    </tweet>
+    <tweet>
+        <id>111111</id>
+        <poster>Bence</poster>
+        <message>I'm fine</message>
+        <time>11111111</time>
+    </tweet>
+    <tweet>
+        <id>111112</id>
+        <poster>Goat</poster>
+        <message>MEEEEE</message>
+        <time>11112211</time>
+    </tweet>
+</tweets>
