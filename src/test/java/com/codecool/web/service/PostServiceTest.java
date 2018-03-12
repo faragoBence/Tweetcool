@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PostServiceTest {
     PostService postService = new PostService();
@@ -25,7 +24,6 @@ class PostServiceTest {
     @Test
     void filterNumberOfPosts() {
         assertEquals(3, postService.filterNumberOfPosts(postService.getTweets(), 3).size());
-        assertThrows(IndexOutOfBoundsException.class, () -> postService.filterNumberOfPosts(postService.getTweets(), 30));
     }
 
     @Test
@@ -44,14 +42,15 @@ class PostServiceTest {
 
     @Test
     void filterTimeFrom() {
-        assertEquals(6, postService.filterTimeFrom(postService.getTweets(), 1111).size());
+        assertEquals(6, postService.filterTimeFrom(postService.getTweets(), "1990-01-01").size());
+        assertEquals(0, postService.filterTimeFrom(postService.getTweets(), "2020-01-01").size());
     }
 
     @Test
     void allTogether() {
         List<Tweet> tweets = postService.getTweets();
         assertEquals(6, tweets.size());
-        tweets = postService.filterTimeFrom(tweets, 1);
+        tweets = postService.filterTimeFrom(tweets, "1990-01-01");
         assertEquals(6, tweets.size());
         tweets = postService.filterPosterOfPosts(tweets, "Dog");
         assertEquals(2, tweets.size());

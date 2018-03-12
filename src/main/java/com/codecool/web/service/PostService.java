@@ -3,8 +3,11 @@ package com.codecool.web.service;
 import com.codecool.web.model.Tweet;
 import com.codecool.web.model.XmlParser;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PostService {
@@ -27,21 +30,31 @@ public class PostService {
         xmlParser.writeToXML("src/main/resources/tweets.xml", tweet);
     }
 
+    public List<Tweet> filter(int limit, int offset, String poster, String time) {
+        List<Tweet> tempTweets;
+        tempTweets = filterTimeFrom(tweets, time);
+        tempTweets = filterSkipPosts(tempTweets, offset);
+        if ((poster != null || !poster.equals("")) && poster.length() > 1) {
+            tempTweets = filterPosterOfPosts(tempTweets, poster);
+        }
+        tempTweets = filterNumberOfPosts(tempTweets, limit);
+        return tempTweets;
+    }
+
 
     public List<Tweet> getTweets() {
         return tweets;
     }
 
     public List<Tweet> filterNumberOfPosts(List<Tweet> tweets, int posts) {
-        if (posts <= tweets.size()) {
             List<Tweet> tempTweets = new ArrayList<>();
-            for (int i = 0; i < posts; i++) {
+        for (int i = 0; i < tweets.size(); i++) {
+            if (i == posts) {
+                break;
+            }
                 tempTweets.add(tweets.get(i));
             }
             return tempTweets;
-        } else {
-            throw new IndexOutOfBoundsException();
-        }
     }
 
     public List<Tweet> filterSkipPosts(List<Tweet> tweets, int skip) {
@@ -62,7 +75,8 @@ public class PostService {
         return tempTweets;
     }
 
-    public List<Tweet> filterTimeFrom(List<Tweet> tweets, long date) {
+    public List<Tweet> filterTimeFrom(List<Tweet> tweets, String time) {
+        long date = convertToMilli(time);
         List<Tweet> tempTweets = new ArrayList<>();
         for (int i = 0; i < tweets.size(); i++) {
             if (tweets.get(i).getDate() > date) {
@@ -70,6 +84,17 @@ public class PostService {
             }
         }
         return tempTweets;
+    }
+
+    public long convertToMilli(String date) {
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-mm-dd");
+        Date d = new Date();
+        try {
+            d = f.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return d.toInstant().toEpochMilli();
     }
 
 }
