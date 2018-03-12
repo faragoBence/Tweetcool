@@ -100,7 +100,7 @@ h1 {
 .postHeader {
     text-align: center;
     height: 20px;
-    
+
 }
 
 .poster {
@@ -137,6 +137,7 @@ h1 {
     margin-bottom: 60px;
 }
 .btnBack{
+    margin-left:0px;
     text-decoration: none;
     background-color: #0084b4;
     color: white;
