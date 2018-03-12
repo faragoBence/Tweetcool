@@ -6,6 +6,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,11 +24,12 @@ class XmlParserTest {
 
     @Test
     void readXML() throws ParserConfigurationException, SAXException, IOException {
-        xmlParser.writeToXML("src/main/resources/test.xml", tweet1);
-        xmlParser.writeToXML("src/main/resources/test.xml", tweet2);
-        assertEquals("Bence", xmlParser.readXML("src/main/resources/test.xml").get(0).getPoster());
-        assertEquals("I'm fine", xmlParser.readXML("src/main/resources/test.xml").get(0).getContent());
-        assertEquals(111111, xmlParser.readXML("src/main/resources/test.xml").get(0).getId());
-        assertEquals(11111111, xmlParser.readXML("src/main/resources/test.xml").get(0).getDate());
+        xmlParser.writeToXML("src/main/resources/Parsertest.xml", tweet1);
+        xmlParser.writeToXML("src/main/resources/Parsertest.xml", tweet2);
+        List<Tweet> tweets = xmlParser.readXML("src/main/resources/Parsertest.xml");
+        assertEquals("Bence", tweets.get(0).getPoster());
+        assertEquals("I'm fine", tweets.get(0).getContent());
+        assertEquals(111111, tweets.get(0).getId());
+        assertEquals(11111111, tweets.get(0).getDate());
     }
 }

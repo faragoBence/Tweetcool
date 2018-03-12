@@ -10,6 +10,7 @@ import java.util.List;
 public class PostService {
     private final XmlParser xmlParser;
     private int id;
+
     private List<Tweet> tweets;
 
     public PostService() {
@@ -26,7 +27,49 @@ public class PostService {
         xmlParser.writeToXML("src/main/resources/tweets.xml", tweet);
     }
 
+
     public List<Tweet> getTweets() {
         return tweets;
     }
+
+    public List<Tweet> filterNumberOfPosts(List<Tweet> tweets, int posts) {
+        if (posts <= tweets.size()) {
+            List<Tweet> tempTweets = new ArrayList<>();
+            for (int i = 0; i < posts; i++) {
+                tempTweets.add(tweets.get(i));
+            }
+            return tempTweets;
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    public List<Tweet> filterSkipPosts(List<Tweet> tweets, int skip) {
+        List<Tweet> tempTweets = new ArrayList<>();
+        for (int i = skip; i < tweets.size(); i++) {
+            tempTweets.add(tweets.get(i));
+        }
+        return tempTweets;
+    }
+
+    public List<Tweet> filterPosterOfPosts(List<Tweet> tweets, String poster) {
+        List<Tweet> tempTweets = new ArrayList<>();
+        for (int i = 0; i < tweets.size(); i++) {
+            if (tweets.get(i).getPoster().equals(poster)) {
+                tempTweets.add(tweets.get(i));
+            }
+        }
+        return tempTweets;
+    }
+
+    public List<Tweet> filterTimeFrom(List<Tweet> tweets, long date) {
+        List<Tweet> tempTweets = new ArrayList<>();
+        for (int i = 0; i < tweets.size(); i++) {
+            if (tweets.get(i).getDate() > date) {
+                tempTweets.add(tweets.get(i));
+            }
+        }
+        return tempTweets;
+    }
+
 }
