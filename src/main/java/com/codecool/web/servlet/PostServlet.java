@@ -24,7 +24,7 @@ public class PostServlet extends HttpServlet {
         service.handleNewTweet(name, message);
 
 
-        req.setAttribute("tweet", service.getTweets().get(0));
+        req.setAttribute("tweets", service.getTweets());
 
         req.getRequestDispatcher("tweet.jsp").forward(req, resp);
     }
