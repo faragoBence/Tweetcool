@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/tweets")
-public class PostServlet extends HttpServlet {
+public class TweetsServlet extends HttpServlet {
 
     private PostService service = new PostService();
 

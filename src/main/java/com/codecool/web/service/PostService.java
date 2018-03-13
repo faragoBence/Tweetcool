@@ -17,7 +17,7 @@ public class PostService {
     private final XmlParser xmlParser;
     private int id;
 
-    private List<Tweet> tweets;
+    private static List<Tweet> tweets;
 
     public PostService() {
         xmlParser = new XmlParser();
