@@ -13,12 +13,12 @@ class PostServiceTest {
 
     @BeforeEach
     void setUp() {
-        postService.handleNewTweet("Bence", "I'm fine");
-        postService.handleNewTweet("Goat", "MEEEEE");
-        postService.handleNewTweet("Squirrel", "Accorn!");
-        postService.handleNewTweet("Dog", "Woooof!");
-        postService.handleNewTweet("Mentor", "Assignments graded");
-        postService.handleNewTweet("Dog", "Wooof wooof");
+        postService.handleNewTweet("Bence", "I'm fine", "src/main/resources/Servicetest.xml");
+        postService.handleNewTweet("Goat", "MEEEEE", "src/main/resources/Servicetest.xml");
+        postService.handleNewTweet("Squirrel", "Accorn!", "src/main/resources/Servicetest.xml");
+        postService.handleNewTweet("Dog", "Woooof!", "src/main/resources/Servicetest.xml");
+        postService.handleNewTweet("Mentor", "Assignments graded", "src/main/resources/Servicetest.xml");
+        postService.handleNewTweet("Dog", "Wooof wooof", "src/main/resources/Servicetest.xml");
     }
 
     @Test

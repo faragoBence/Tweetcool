@@ -23,7 +23,7 @@ public class PostServlet extends HttpServlet {
 
         String message = req.getParameter("message");
 
-        service.handleNewTweet(name, message);
+        service.handleNewTweet(name, message, "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\TweetcoolByFB\\tweets.xml");
 
 
         req.setAttribute("tweets", service.getTweets());
@@ -41,5 +41,10 @@ public class PostServlet extends HttpServlet {
         req.setAttribute("tweets", tweets);
 
         req.getRequestDispatcher("tweet.jsp").forward(req, resp);
+    }
+
+    @Override
+    public void init() {
+        service.restart();
     }
 }

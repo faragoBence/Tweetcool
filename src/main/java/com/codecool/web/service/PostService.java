@@ -2,7 +2,10 @@ package com.codecool.web.service;
 
 import com.codecool.web.model.Tweet;
 import com.codecool.web.model.XmlParser;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -22,12 +25,12 @@ public class PostService {
         tweets = new ArrayList<>();
     }
 
-    public void handleNewTweet(String poster, String message) {
+    public void handleNewTweet(String poster, String message, String path) {
         id++;
         long date = Instant.now().toEpochMilli();
         Tweet tweet = new Tweet(poster, message, id, date);
         tweets.add(tweet);
-        xmlParser.writeToXML("src/main/resources/tweets.xml", tweet);
+        xmlParser.writeToXML(path, tweet);
     }
 
     public List<Tweet> filter(int limit, int offset, String poster, String time) {
@@ -95,6 +98,18 @@ public class PostService {
             e.printStackTrace();
         }
         return d.toInstant().toEpochMilli();
+    }
+
+    public void restart() {
+        try {
+            tweets = xmlParser.readXML("C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\TweetcoolByFB\\tweets.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
     }
 
 }
