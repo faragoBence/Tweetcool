@@ -82,8 +82,12 @@ h1 {
     cursor: pointer;
 }
 
+.button-div {
+    text-align: center;
+}
+
 .btnget {
-    margin-left: 75px;
+    margin-left: -40px;
 }
 
 .postTable {
@@ -131,23 +135,36 @@ h1 {
     text-align: left;
 }
 
-.goBack{
+.goBack {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 60px;
 }
-.btnBack{
-    margin-left:0px;
+
+.btnBack {
+    margin-left: 0px;
     text-decoration: none;
     background-color: #0084b4;
     color: white;
     transition: background-color 0.5s;
     transition: color 0.5s;
 }
+
 .btnBack:hover,
-.btnBack:active{
+.btnBack:active {
     background: #1dcaff;
     color: black;
     transition: background-color 0.5s;
     transition: color 0.5s;
+}
+
+.filter {
+    margin-left: 1050px;
+    margin-top: 20px;
+    width: 250px;
+    position: fixed;
+}
+
+.elements {
+    margin-left: 20px;
 }

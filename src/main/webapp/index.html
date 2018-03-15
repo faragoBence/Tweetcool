@@ -22,21 +22,27 @@
             <tr>
                 <td>
                     <form class="form post" action="new-tweet" method="POST">
-                        <img src="resources/img/Twitter-Download-PNG.png" alt="logo" class="logo"><br>
-                        Name:<br>
+                        <img src="resources/img/Twitter-Download-PNG.png" alt="logo" class="logo"><br> Name:
+                        <br>
                         <input type="text" name="name"><br> Message:<br>
                         <input type="text" name="message"><br>
-                        <input type="submit" value="Send" class="btn">
+                        <div class="button-div">
+                            <input type="submit" value="Send" class="btn">
+                        </div>
                     </form>
                 </td>
                 <td>
                     <form class="form tweets" action="tweets" method="GET">
-                        Number of posts:<br>
-                        <input type="number" name="limit" value="10"><br> Posts to skip:<br>
-                        <input type="number" name="offset" value="0"><br>Poster:<br>
-                        <input type="text" name="poster"><br> Time:<br>
-                        <input type="date" name="time" value="1970-01-01"><br>
-                        <input type="submit" value="Get" class="btn btnget">
+                        <div class="elements">
+                            Number of posts:<br>
+                            <input type="number" name="limit" value="10"><br> Posts to skip:<br>
+                            <input type="number" name="offset" value="0"><br>Poster:<br>
+                            <input type="text" name="poster"><br> Time:<br>
+                            <input type="date" name="time" value="1970-01-01"><br>
+                            <div class="button-div">
+                                <input type="submit" value="Get" class="btn btnget">
+                            </div>
+                        </div>
 
                     </form>
 
