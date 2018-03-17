@@ -4,6 +4,7 @@ import com.codecool.web.service.PostService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +22,14 @@ public class NewTweetServlet extends HttpServlet {
 
         String message = req.getParameter("message");
 
-        service.handleNewTweet(name, message, "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\TweetcoolByFB\\tweets.xml");
+        service.handleNewTweet(name, message, "./webapps/tweets.xml");
 
+        Cookie cookie = new Cookie("poster", name);
 
-        req.setAttribute("tweets", service.getTweets());
+        cookie.setMaxAge(60 * 60 * 24);
+        resp.addCookie(cookie);
+        service.restart();
+        req.setAttribute("tweets", PostService.getTweets());
 
         req.getRequestDispatcher("tweet.jsp").forward(req, resp);
     }

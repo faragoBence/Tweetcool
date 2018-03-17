@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
+    <script type="text/javascript" src="resources/js/methods.js"></script>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="resources/favico/favicon-16x16.png">
     <link rel="manifest" href="resources/favico/site.webmanifest">
@@ -21,7 +22,7 @@
         <table class="formTable">
             <tr>
                 <td>
-                    <form class="form post" action="new-tweet" method="POST">
+                    <form name="post" class="form post" action="new-tweet" onsubmit="return postForm();" method="POST">
                         <img src="resources/img/Twitter-Download-PNG.png" alt="logo" class="logo"><br> Name:
                         <br>
                         <input type="text" name="name"><br> Message:<br>

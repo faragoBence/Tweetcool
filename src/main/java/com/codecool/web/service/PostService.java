@@ -45,19 +45,19 @@ public class PostService {
     }
 
 
-    public List<Tweet> getTweets() {
+    public static List<Tweet> getTweets() {
         return tweets;
     }
 
     public List<Tweet> filterNumberOfPosts(List<Tweet> tweets, int posts) {
-            List<Tweet> tempTweets = new ArrayList<>();
+        List<Tweet> tempTweets = new ArrayList<>();
         for (int i = 0; i < tweets.size(); i++) {
             if (i == posts) {
                 break;
             }
-                tempTweets.add(tweets.get(i));
-            }
-            return tempTweets;
+            tempTweets.add(tweets.get(i));
+        }
+        return tempTweets;
     }
 
     public List<Tweet> filterSkipPosts(List<Tweet> tweets, int skip) {
@@ -102,7 +102,7 @@ public class PostService {
 
     public void restart() {
         try {
-            tweets = xmlParser.readXML("C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\TweetcoolByFB\\tweets.xml");
+            tweets = xmlParser.readXML("./webapps/tweets.xml");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SAXException e) {

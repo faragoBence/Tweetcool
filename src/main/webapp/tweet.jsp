@@ -47,7 +47,7 @@
             </c:forEach>
         </section>
         <div class="goBack">
-            <a class="btn btnBack" href="index.html">Go back</a>
+            <a class="btn btnBack" href="index.jsp">Go back</a>
         </div>
     </body>
 

@@ -25,13 +25,9 @@ public class TweetsServlet extends HttpServlet {
         String poster = req.getParameter("poster");
         String time = req.getParameter("time");
         List<Tweet> tweets = service.filter(limit, offset, poster, time);
+        service.restart();
         req.setAttribute("tweets", tweets);
 
         req.getRequestDispatcher("tweet.jsp").forward(req, resp);
-    }
-
-    @Override
-    public void init() {
-        service.restart();
     }
 }
