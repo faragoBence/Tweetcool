@@ -23,7 +23,6 @@ public class NewTweetServlet extends HttpServlet {
         String message = req.getParameter("message");
 
         service.handleNewTweet(name, message, "./webapps/tweets.xml");
-
         Cookie cookie = new Cookie("poster", name);
 
         cookie.setMaxAge(60 * 60 * 24);

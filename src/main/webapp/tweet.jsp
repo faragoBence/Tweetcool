@@ -47,7 +47,9 @@
             </c:forEach>
         </section>
         <div class="goBack">
-            <a class="btn btnBack" href="index.jsp">Go back</a>
+            <form action="index" method="GET">
+            <input type="submit" value="Go back" class="btn btnget">
+            </form>
         </div>
     </body>
 

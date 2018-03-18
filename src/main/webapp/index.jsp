@@ -25,7 +25,7 @@
                     <form name="post" class="form post" action="new-tweet" onsubmit="return postForm();" method="POST">
                         <img src="resources/img/Twitter-Download-PNG.png" alt="logo" class="logo"><br> Name:
                         <br>
-                        <input type="text" name="name"><br> Message:<br>
+                        <input type="text" name="name" value="${myCookie}"><br> Message:<br>
                         <input type="text" name="message"><br>
                         <div class="button-div">
                             <input type="submit" value="Send" class="btn">
